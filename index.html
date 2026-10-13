@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Three.js GitHub Demo</title>
-  <link rel="stylesheet" href="style.css?v=4" />
+  <meta name="theme-color" content="#050816" />
+  <title>Cosmic Three.js Scene</title>
+  <link rel="stylesheet" href="style.css?v=5" />
 
   <script type="importmap">
   {
@@ -16,37 +17,37 @@
   </script>
 </head>
 <body>
-  <main class="card">
-    <p class="eyebrow">GitHub + ChatGPT + Three.js</p>
-    <h1>Настоящая 3D-сцена</h1>
-    <p id="status">Теперь куб — это объект Three.js, а не HTML/CSS-имитация.</p>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Three.js · Procedural Space</p>
+        <h1>Глубокий космос</h1>
+        <p id="status" class="subtitle">Интерактивная сцена: планета, кольца, спутник, туманность и тысячи звёзд.</p>
+      </div>
+      <div class="badge">LIVE 3D</div>
+    </header>
 
-    <section class="three-demo" aria-label="Интерактивная Three.js сцена">
-      <div id="threeScene" class="three-scene"></div>
-
-      <div class="scene-help">
-        <span>🖱️ Тяни — вращение</span>
-        <span>🔍 Колесо — масштаб</span>
-        <span>📱 Работает пальцем</span>
+    <section class="space-panel" aria-label="Интерактивная космическая Three.js сцена">
+      <div id="threeScene" class="three-scene">
+        <div class="scene-overlay">
+          <span>DRAG · вращение</span>
+          <span>SCROLL · масштаб</span>
+        </div>
       </div>
 
-      <div class="scene-actions">
-        <button id="colorButton" class="primary" type="button">Сменить материал</button>
-        <button id="rotationButton" class="secondary" type="button">Остановить вращение</button>
+      <div class="controls-row">
+        <button id="paletteButton" class="primary" type="button">Сменить атмосферу</button>
+        <button id="rotationButton" class="secondary" type="button">Остановить движение</button>
+        <button id="resetButton" class="secondary" type="button">Вернуть камеру</button>
       </div>
     </section>
 
-    <div class="counter">
-      <span>Тест JavaScript:</span>
-      <strong id="count">0</strong>
-    </div>
-
-    <button id="button" type="button">Нажми меня</button>
-    <button id="reset" class="secondary" type="button">Сбросить</button>
-
-    <p class="hint">Следующий шаг: заменить куб собственной моделью GLB.</p>
+    <footer class="footer-note">
+      <span>Сцена генерируется кодом — без загруженных текстур и 3D-моделей.</span>
+      <span class="pulse-dot" aria-hidden="true"></span>
+    </footer>
   </main>
 
-  <script type="module" src="script.js?v=4"></script>
+  <script type="module" src="script.js?v=5"></script>
 </body>
 </html>
