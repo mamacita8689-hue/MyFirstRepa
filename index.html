@@ -3,41 +3,50 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ChatGPT GitHub Demo</title>
-  <link rel="stylesheet" href="style.css?v=3" />
+  <title>Three.js GitHub Demo</title>
+  <link rel="stylesheet" href="style.css?v=4" />
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
+    }
+  }
+  </script>
 </head>
 <body>
   <main class="card">
-    <p class="eyebrow">GitHub + ChatGPT</p>
-    <h1>Тестовый проект работает</h1>
-    <p id="status">Этот сайт создан ChatGPT прямо в твоём репозитории.</p>
+    <p class="eyebrow">GitHub + ChatGPT + Three.js</p>
+    <h1>Настоящая 3D-сцена</h1>
+    <p id="status">Теперь куб — это объект Three.js, а не HTML/CSS-имитация.</p>
 
-    <section class="cube-demo" aria-label="Управляемый 3D-куб">
-      <div class="scene" id="scene">
-        <div class="cube" id="cube">
-          <div class="face front">1</div>
-          <div class="face back">2</div>
-          <div class="face right">3</div>
-          <div class="face left">4</div>
-          <div class="face top">5</div>
-          <div class="face bottom">6</div>
-        </div>
+    <section class="three-demo" aria-label="Интерактивная Three.js сцена">
+      <div id="threeScene" class="three-scene"></div>
+
+      <div class="scene-help">
+        <span>🖱️ Тяни — вращение</span>
+        <span>🔍 Колесо — масштаб</span>
+        <span>📱 Работает пальцем</span>
       </div>
-      <p class="cube-caption">Куб вращается сам. Потяни его мышью или пальцем.</p>
-      <button id="colorButton" class="color-button" type="button">Сменить цвет куба</button>
+
+      <div class="scene-actions">
+        <button id="colorButton" class="primary" type="button">Сменить материал</button>
+        <button id="rotationButton" class="secondary" type="button">Остановить вращение</button>
+      </div>
     </section>
 
     <div class="counter">
-      <span>Нажатий:</span>
+      <span>Тест JavaScript:</span>
       <strong id="count">0</strong>
     </div>
 
     <button id="button" type="button">Нажми меня</button>
     <button id="reset" class="secondary" type="button">Сбросить</button>
 
-    <p class="hint">Код меняется в GitHub, а результат проверяется в Codespaces.</p>
+    <p class="hint">Следующий шаг: заменить куб собственной моделью GLB.</p>
   </main>
 
-  <script src="script.js?v=3"></script>
+  <script type="module" src="script.js?v=4"></script>
 </body>
 </html>
