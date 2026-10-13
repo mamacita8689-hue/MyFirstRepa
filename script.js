@@ -12,6 +12,7 @@ let rotY = 30;
 let dragging = false;
 let lastX = 0;
 let lastY = 0;
+let lastFrame = performance.now();
 
 const cubeColors = [
   'rgba(59, 130, 246, 0.72)',
@@ -26,18 +27,30 @@ function updateCubeRotation() {
   cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
 }
 
+function animate(now) {
+  const deltaSeconds = Math.min((now - lastFrame) / 1000, 0.05);
+  lastFrame = now;
+
+  if (!dragging) {
+    rotY += 24 * deltaSeconds;
+    updateCubeRotation();
+  }
+
+  requestAnimationFrame(animate);
+}
+
 button.addEventListener('click', () => {
   clicks += 1;
   count.textContent = clicks;
   status.textContent = clicks === 1
-    ? 'Отлично — JavaScript тоже работает.'
+    ? 'Отлично — JavaScript работает.'
     : `Всё работает. Нажатий: ${clicks}.`;
 });
 
 reset.addEventListener('click', () => {
   clicks = 0;
   count.textContent = '0';
-  status.textContent = 'Счётчик сброшен. Проект готов к новым экспериментам.';
+  status.textContent = 'Счётчик сброшен. Куб продолжает работать.';
 });
 
 scene.addEventListener('pointerdown', (event) => {
@@ -56,7 +69,6 @@ scene.addEventListener('pointermove', (event) => {
 
   rotY += dx * 0.7;
   rotX -= dy * 0.7;
-
   lastX = event.clientX;
   lastY = event.clientY;
   updateCubeRotation();
@@ -65,7 +77,7 @@ scene.addEventListener('pointermove', (event) => {
 function stopDragging(event) {
   dragging = false;
   scene.classList.remove('dragging');
-  if (event.pointerId !== undefined && scene.hasPointerCapture(event.pointerId)) {
+  if (scene.hasPointerCapture?.(event.pointerId)) {
     scene.releasePointerCapture(event.pointerId);
   }
 }
@@ -76,7 +88,8 @@ scene.addEventListener('pointercancel', stopDragging);
 colorButton.addEventListener('click', () => {
   colorIndex = (colorIndex + 1) % cubeColors.length;
   document.documentElement.style.setProperty('--cube-color', cubeColors[colorIndex]);
-  status.textContent = 'Цвет куба изменён.';
+  status.textContent = `Цвет куба изменён (${colorIndex + 1}/${cubeColors.length}).`;
 });
 
 updateCubeRotation();
+requestAnimationFrame(animate);
