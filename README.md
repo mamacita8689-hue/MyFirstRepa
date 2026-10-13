@@ -1,8 +1,16 @@
 # Cosmic Three.js Demo
 
-Учебный проект для проверки совместной работы ChatGPT, GitHub и GitHub Codespaces.
+Учебный проект для проверки совместной работы ChatGPT, GitHub, GitHub Codespaces и GitHub Pages.
 
 Проект прошёл путь от простой HTML/CSS/JavaScript-страницы через CSS-куб и базовую Three.js-сцену к полноценной интерактивной космической композиции.
+
+## Онлайн-версия
+
+Проект опубликован через GitHub Pages:
+
+**https://mamacita8689-hue.github.io/MyFirstRepa/**
+
+Публикация настроена из ветки `main`, папка `/ (root)`.
 
 ## Текущее состояние
 
@@ -38,6 +46,7 @@
 - CanvasTexture
 - Points / Sprites / BufferGeometry
 - GitHub Codespaces
+- GitHub Pages
 
 Three.js подключается через CDN и `importmap`, поэтому проект пока не требует `npm` или сборщика.
 
@@ -48,10 +57,11 @@ MyFirstRepa/
 ├── index.html   # интерфейс и import map для Three.js
 ├── style.css    # космический интерфейс и адаптивное оформление
 ├── script.js    # вся 3D-сцена, генерация текстур, частицы и анимация
+├── .nojekyll    # отключает лишнюю обработку Jekyll при публикации Pages
 └── README.md    # описание проекта
 ```
 
-## Как запустить в GitHub Codespaces
+## Как работать через GitHub Codespaces
 
 Открой репозиторий в Codespaces и выполни:
 
@@ -68,6 +78,20 @@ git pull
 ```
 
 и обнови страницу браузера.
+
+## GitHub Pages
+
+Для обычного просмотра Codespaces больше не нужен: опубликованная версия доступна по постоянной ссылке GitHub Pages.
+
+После изменений в ветке `main` GitHub Pages автоматически публикует новую версию сайта.
+
+Если нужно временно остановить публикацию, это можно сделать в:
+
+```text
+Settings → Pages
+```
+
+и отключить источник публикации. Позже его можно снова включить для `main → / (root)`.
 
 ## Управление сценой
 
@@ -88,6 +112,8 @@ CSS 3D cube
 Three.js cube
     ↓
 Procedural cosmic scene
+    ↓
+GitHub Pages
     ↓
 GLB/GLTF model
     ↓
