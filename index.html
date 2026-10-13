@@ -12,9 +12,9 @@
     <h1>Тестовый проект работает</h1>
     <p id="status">Этот сайт создан ChatGPT прямо в твоём репозитории.</p>
 
-    <section class="cube-demo" aria-label="Вращающийся 3D-куб">
-      <div class="scene">
-        <div class="cube">
+    <section class="cube-demo" aria-label="Управляемый 3D-куб">
+      <div class="scene" id="scene">
+        <div class="cube" id="cube">
           <div class="face front">1</div>
           <div class="face back">2</div>
           <div class="face right">3</div>
@@ -23,7 +23,8 @@
           <div class="face bottom">6</div>
         </div>
       </div>
-      <p class="cube-caption">Куб добавлен ChatGPT напрямую через GitHub</p>
+      <p class="cube-caption">Потяни куб мышью или пальцем</p>
+      <button id="colorButton" class="color-button" type="button">Сменить цвет куба</button>
     </section>
 
     <div class="counter">
@@ -34,7 +35,7 @@
     <button id="button" type="button">Нажми меня</button>
     <button id="reset" class="secondary" type="button">Сбросить</button>
 
-    <p class="hint">Открой проект в Codespaces и запусти простой локальный сервер.</p>
+    <p class="hint">Код меняется в GitHub, а результат проверяется в Codespaces.</p>
   </main>
 
   <script src="script.js"></script>
